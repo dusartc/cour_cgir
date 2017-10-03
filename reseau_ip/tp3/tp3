@@ -1,0 +1,46 @@
+2) a)
+	ARP -> @ip -> @mac
+	0 -> chercher @mac
+	4e:... -> repondre a la question
+	192.168.1.254
+	pas sur le meme reseau donc il l'envoie a la gateway
+
+   b)
+	ICMP | IP | ethernet
+	ping
+	98 octets
+	20 octets
+	3 routeurs
+
+   c)
+	TTL exceeded -> TTL mort
+	@source : 195.10.5.5 @dest : 192.168.1.5
+	navigateur -> HTTP
+	192.10.5.5 -> routeur
+
+   d)
+	couche 2
+	80
+	100
+	flag more fragment
+
+3) a)
+	UDP
+	59426 5001
+	42
+	8
+
+   b)
+	TCP
+	ouverture de connexion
+	690 et 943
+	1460 octect
+	MSS -> total de donnée et MTU -> totalité du paquet
+
+   c)
+	906
+	914 -> reçu 906 + 8données et attends le 914
+	PSH			
+
+   d)
+	fin de connexion
