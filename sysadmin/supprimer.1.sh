@@ -12,13 +12,12 @@
 test $# -lt 1 && echo "pas assez d'arguments" && exit 1
 ! test -f $1 && echo "$1 n'est pas un fichier" && exit 2
 
-test $# -gt 1 && echo "plusieurs arguments fournis, seul le premier sera pris en compte"
+test $# -gt 1 && echo "plusieurs arguments fournis, seul le premier sera pris en compte (ou pas)"
 
 while true;do
-	echo -n "Supprimer $1 ? "
-	read
+	echo -n "Supprimer $1 ? ";read
 	case $REPLY in
-		O*|o*|Y*|y*) rm $1;break;;
+		O*|o*|Y*|y*) rm $*;break;;
 		N*|n*) exit 3;;
 		*) echo "ecrivez Oui ou Non";;
 	esac

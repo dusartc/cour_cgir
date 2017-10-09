@@ -10,19 +10,12 @@
 ###########################################
 
 test $# -lt 1 && echo "pas assez d'arguments" && exit 1
-! test -f $1 && echo "$1 n'est pas un fichier" && exit 2
 
-test $# -gt 1 && echo "plusieurs arguments fournis, seul le premier sera pris en compte"
-
-while true;do
-	echo -n "Supprimer $1 ? "
-	read
-	case $REPLY in
-		O*|o*|Y*|y*) rm $1;break;;
-		N*|n*) exit 3;;
-		*) echo "ecrivez Oui ou Non";;
-	esac
+for arg;do
+	! test -f $arg && echo "$arg n'est pas un fichier, passage au suivant" && continue
+	echo "supprimer $arg ?"
+	select ans in "Oui" "Non";do
+		[[ $REPLY -eq 1 ]] && rm $arg && break
+		[[ $REPLY -eq 2 ]] && exit 3
+	done
 done
-
-test $? -eq 0 && exit 0
-exit 5

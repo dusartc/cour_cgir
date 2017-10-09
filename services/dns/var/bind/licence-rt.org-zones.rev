@@ -1,0 +1,17 @@
+;
+; BIND reverse data file for broadcast zone
+;
+$TTL	604800
+@	IN	SOA	ns1.licence-rt.org. root.licence-rt.org. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	ns1.licence-rt.org.
+@	IN	NS	ns2.licence-rt.org.
+100	IN	PTR	ns1	
+101	IN	PTR	ns2
+101	IN	PTR	services
+1	IN	PTR	phys
