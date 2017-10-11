@@ -1,0 +1,4 @@
+ip address add 192.168.1.254/24 broadcast + dev eth0
+ip address add 172.16.1.1/30 broadcast + dev eth1 
+ip link set dev eth0 up
+ip link set dev eth1 up
