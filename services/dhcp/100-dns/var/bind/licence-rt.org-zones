@@ -1,0 +1,27 @@
+$ORIGIN .
+$TTL 604800	; 1 week
+licence-rt.org		IN SOA	ns1.licence-rt.org. root.licence-rt.org. (
+				11         ; serial
+				604800     ; refresh (1 week)
+				86400      ; retry (1 day)
+				2419200    ; expire (4 weeks)
+				604800     ; minimum (1 week)
+				)
+			NS	ns1.licence-rt.org.
+			NS	ns2.licence-rt.org.
+$ORIGIN licence-rt.org.
+dhcp			A	192.168.194.254
+			MX	10 services
+$TTL 300	; 5 minutes
+dhcp-client		A	192.168.194.28
+			TXT	"00b444df4ccb38fa905266d1da41d086ed"
+$TTL 604800	; 1 week
+ftp			CNAME	services
+imap			CNAME	services
+ns1			A	192.168.194.100
+ns2			A	192.168.194.101
+phys			A	192.168.194.1
+pop			CNAME	phys
+services		A	192.168.194.101
+smtp			CNAME	services
+www			CNAME	services

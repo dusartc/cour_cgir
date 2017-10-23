@@ -1,0 +1,19 @@
+$ORIGIN .
+$TTL 604800	; 1 week
+194.168.192.in-addr.arpa IN SOA	ns1.licence-rt.org. root.licence-rt.org. (
+				2          ; serial
+				604800     ; refresh (1 week)
+				86400      ; retry (1 day)
+				2419200    ; expire (4 weeks)
+				604800     ; minimum (1 week)
+				)
+			NS	ns1.licence-rt.org.
+			NS	ns2.licence-rt.org.
+$ORIGIN 194.168.192.in-addr.arpa.
+1			PTR	phys
+100			PTR	ns1
+101			PTR	ns2
+			PTR	services
+254			PTR	dhcp
+$TTL 300	; 5 minutes
+28			PTR	dhcp-client.licence-rt.org.

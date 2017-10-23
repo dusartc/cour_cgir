@@ -1,0 +1,43 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+key "dhcp-update-key" {
+	algorithm hmac-md5;
+	secret "669OdUtfasIF5YJ2KuIT6w==";
+};
+
+controls {
+	inet 192.168.194.100 port 953
+		allow { 192.168.194.254; } keys { "dhcp-update-key"; };
+};
+
+zone "licence-rt.org" {
+	type master;
+	file "/var/bind/licence-rt.org-zones";
+	allow-update { key "dhcp-update-key"; };
+};
+
+zone "194.168.192.in-addr.arpa" {
+	type master;
+	file "/var/bind/licence-rt.org-zones.rev";
+	allow-update { key "dhcp-update-key"; };
+};
+
+
+# Use with the following in named.conf, adjusting the allow list as needed:
+key "rndc-key" {
+	algorithm hmac-md5;
+	secret "Hg9PqBQHDNYjRB1pVq/C0A==";
+};
+ 
+controls {
+	inet 127.0.0.1 port 953
+		allow { 127.0.0.1; } keys { "rndc-key"; };
+};
+
+# End of named.conf

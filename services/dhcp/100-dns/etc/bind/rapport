@@ -1,0 +1,48 @@
+/var/bind/licence-rt.org-zones
+;
+; BIND reverse data file for broadcast zone
+;
+$ORIGIN	licence-rt.org.
+$TTL	604800
+@	IN	SOA	ns1.licence-rt.org. root.licence-rt.org. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	ns1.licence-rt.org.
+@	IN	NS	ns2.licence-rt.org.
+ns1	IN	A	192.168.194.100
+ns2	IN	A	192.168.194.101
+services	IN	A	192.168.194.101
+phys	IN	A	192.168.194.1
+
+	IN	MX	10	services
+
+www	IN	CNAME	services
+pop	IN	CNAME	phys
+imap	IN	CNAME	services
+smtp	IN	CNAME	services
+ftp	IN	CNAME	services
+
+/var/bind/licence-rt.org-zones.rev
+;
+; BIND reverse data file for broadcast zone
+;
+$TTL	604800
+@	IN	SOA	ns1.licence-rt.org. root.licence-rt.org. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	ns1.licence-rt.org.
+@	IN	NS	ns2.licence-rt.org.
+100	IN	PTR	ns1	
+101	IN	PTR	ns2
+101	IN	PTR	services
+1	IN	PTR	phys
+
+
