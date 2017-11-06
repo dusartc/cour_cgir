@@ -1,0 +1,31 @@
+ldapsearch -x -h ldapkp.iut-infobio.priv.univ-lille1.fr -b dc=iut-infobio,dc=priv,dc=univ-lille1,dc=fr cn=ju* | grep cn
+
+# filter: cn=ju*
+cn: Julien LEROUXGEAETU
+cn: Juliette DELSAUT
+cn: Juliette PARISSEAUX
+cn: Julien DEVILDER
+cn: Julie BRIOIT
+cn: Jules PICHON
+cn: Julien VANRYSSEL
+cn: Juliette OLIVIER
+cn: Juliette SEBASTIEN
+cn: Justine LELEU
+cn: Julia LEMAIRE
+cn: Julia HASBROUCK
+cn: Julien DECOT
+cn: Justine JANKOWSKI
+cn: Julie DEBERLES
+cn: Julien MARSHALL
+cn: Juliette RENARD
+
+ldapsearch -x -h ldapkp.iut-infobio.priv.univ-lille1.fr -b dc=iut-infobio,dc=priv,dc=univ-lille1,dc=fr sn=*martin* | grep sn
+
+# filter: sn=*martin*
+sn: MARTINET
+sn: MARTINE
+sn: DE MARTINI
+sn: MARTIN
+sn: MARTIN
+
+ldapsearch -x -h ldapkp.iut-infobio.priv.univ-lille1.fr -b dc=iut-infobio,dc=priv,dc=univ-lille1,dc=fr '(!(mail=*))'

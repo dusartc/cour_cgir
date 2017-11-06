@@ -1,0 +1,8 @@
+dn: olcDatabase=mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: mdb
+olcDbDirectory: /srv/ldap/iut
+olcSuffix: dc=iut,dc=org
+olcRootDN: cn=admin,dc=iut,dc=org
+olcRootPW: {SSHA}aCtoZiuvI+2B/z2LIozxC/LqOKY74yQ+
