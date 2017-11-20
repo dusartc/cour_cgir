@@ -40,36 +40,66 @@
 
 	ldapadd -x -H ldapi:/// -D cn=admin,dc=iut,dc=org -f newdbroot.ldif -W
 
-### Creation des departements
+### Creation des categories
 
 	vim /etc/ldap/schema.local/departement.ldif
 
-	dn: ou=informatique,dc=iut,dc=org
+	dn: ou=dut,dc=iut,dc=org
 	ObjectClass: organizationalUnit
-	ou: informatique
+	ou: dut
+	description: Diplome Universitaire Technologique
 
-	-- etc ... --
+	dn: ou=lp,dc=iut,dc=org
+	ObjectClass: organizationalUnit
+	ou: lp
+	description: Licence Professionnel
+
+	dn: ou=master,dc=iut,dc=org
+	ObjectClass: organizationalUnit
+	ou: master
+	description: master
+
 
 	ldapadd -x -H ldapi:/// -D cn=admin,dc=iut,dc=org -f departement.ldif -W
 
-### Hierarchie
+### Creation des utilisateurs
 
-	iut
-	├── departement
-	│   ├── chimie
-	│   ├── gb
-	│   ├── gea
-	│   ├── geii
-	│   ├── gmp
-	│   ├── informatique
-	│   └── mesuresPhysiques
-	├── formation
-	│   ├── dut
-	│   ├── lp
-	│   └── master
-	└── personnel
-	    ├── aitos
-	    ├── maitreConf
-	    ├── profAgrege
-	    ├── profCertifie
-	    └── profUniv
+	vim /etc/ldap/schema.local/inetorgperson.ldif
+
+	dn: cn=Clement Dusart,ou=lp,dc=iut,dc=org
+	ObjectClass: inetOrgPerson
+	cn: Clement Dusart
+	sn: dusartc
+	displayName: dusartc
+	title: Etudiant
+	businessCategory: Informatique
+	uid: dusartc
+	ou: lp
+
+	dn: cn=Jean Kevin,ou=dut,dc=iut,dc=org
+	ObjectClass: inetOrgPerson
+	cn: Jean Kevin
+	sn: JeanKev
+	displayName: kevinj
+	title: Etudiant
+	businessCategory: Genie Biologie
+	uid: kevinj
+	ou: dut
+
+	...
+
+	les formations sont indiqués dans l'OU de l'utilisateur, son département est indiqué dans l'attribut businessCategory et sa catégorie personnelle est indiquée dans l'attribut title
+
+#### script pour creer un utilisateur
+
+	...
+
+## Recherche
+
+### personels du département Informatique
+
+	ldapsearch -Y EXTERNAL -H ldapi:/// -b dc=iut,dc=org '(businessCategory=Informatique)'
+
+### etudiants en DUT bio
+	
+	ldapsearch -Y EXTERNAL -H ldapi:/// -b ou=dut,dc=iut,dc=org '(&(title=Etudiant)(businessCategory=Genie Biologie))'
