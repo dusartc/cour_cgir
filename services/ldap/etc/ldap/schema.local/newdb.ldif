@@ -5,4 +5,4 @@ olcDatabase: mdb
 olcDbDirectory: /srv/ldap/iut
 olcSuffix: dc=iut,dc=org
 olcRootDN: cn=admin,dc=iut,dc=org
-olcRootPW: {SSHA}aCtoZiuvI+2B/z2LIozxC/LqOKY74yQ+
+olcRootPW: {SSHA}0PgjlQLHSsC9dZ6Z4UVdB6iIzsDUMjl9

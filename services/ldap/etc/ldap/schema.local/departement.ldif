@@ -1,0 +1,14 @@
+dn: ou=dut,dc=iut,dc=org
+ObjectClass: organizationalUnit
+ou: dut
+description: Diplome Universitaire Technologique
+
+dn: ou=lp,dc=iut,dc=org
+ObjectClass: organizationalUnit
+ou: lp
+description: Licence Professionnel
+
+dn: ou=master,dc=iut,dc=org
+ObjectClass: organizationalUnit
+ou: master
+description: master

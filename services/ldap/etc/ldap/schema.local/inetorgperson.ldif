@@ -1,0 +1,19 @@
+dn: cn=Clement Dusart,ou=lp,dc=iut,dc=org
+ObjectClass: inetOrgPerson
+cn: Clement Dusart
+sn: dusartc
+displayName: dusartc
+title: Etudiant
+businessCategory: Informatique
+uid: dusartc
+ou: lp
+
+dn: cn=Jean Kevin,ou=dut,dc=iut,dc=org
+ObjectClass: inetOrgPerson
+cn: Jean Kevin
+sn: JeanKev
+displayName: kevinj
+title: Etudiant
+businessCategory: Genie Biologie
+uid: kevinj
+ou: dut

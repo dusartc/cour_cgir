@@ -1,0 +1,5 @@
+dn: dc=iut,dc=org
+ObjectClass: dcObject
+ObjectClass: organization
+dc: iut
+o: iut.org
